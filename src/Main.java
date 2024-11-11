@@ -1,5 +1,5 @@
 public class Main {
-    public static void main(String[] args) throws LimitException {
+    public static void main(String[] args) {
         BankAccount account = new BankAccount();
         account.deposit(15000);
         System.out.println("Ваш баланс: " + account.getAmount());
