@@ -10,10 +10,16 @@ public class Main {
             } catch (LimitException e) {
                 System.out.println("Ошибка: " + e.getMessage());
                 System.out.println("Снимаем остаток: " + e.getRemainingAmount());
-                account.withDraw(e.getRemainingAmount());
+
+                try {
+                    account.withDraw(e.getRemainingAmount());
+                } catch (LimitException ex) {
+                    System.out.println("Непредвиденная ошибка: " + ex.getMessage());
+                }
+
+                }
                 System.out.println("Ваш остаток баланса после последнего снятия: " + account.getAmount());
                 break;
             }
         }
     }
-}
